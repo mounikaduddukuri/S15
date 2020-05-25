@@ -1,126 +1,50 @@
 # S15
 Final Assignment
+## Data set of 100 backgroung images of streets and roads      
+Background images were downloaded and resized to 224* 224 uing GIMP
+![Image](https://github.com/mounikaduddukuri/S15A/blob/master/9.png)
 
 
-Skip to content
-Search or jump to…
-
-Pull requests
-Issues
-Marketplace
-Explore
+## Data set of 100 foreground images of cars   
+   
+car images were downloaded, backgrounds were deleted uing 3Dpaint and car images with tranparent background were created.
+ *Regreted this step in later stages of creating depth images- as it created blur margins
  
-@mounikaduddukuri 
-mounikaduddukuri
-/
-S15-1
-forked from DrVenkataRajeshKumar/S15
-0
-01
- Code
- Pull requests 0 Actions
- Projects 0
- Wiki
- Security 0
- Insights
- Settings
-S15-1
-/
-README.md
- 
+ ![Image](https://github.com/mounikaduddukuri/S15A/blob/master/97.png)
 
-1
-# S15
-2
-​
-3
-400000 images were created using only 100 foreground images and 100 background images
-4
-​
-5
-​
-6
-​
-7
-set of 7800 images were taken as a group to tryout the initial architecture of code.
-8
-100 bg images, 7800 fgbg images and corresponding 7800 mask images of fgbg, 7800 depth images were taken as dataset.
-9
-​
-10
-​
-11
-Tried transforms resize to small size to handle burden on the GPU. Tried gray scale transform because of 2 reasons.
-12
-1. as our predictions i.e mask images and depth images are in gray scale
-13
-2. to reduce the burden on GPU by reducing the weights, channels
-14
-​
-15
-only bg image and fgbg images were trained.
-16
-1st issue encountered was to train 2 sets of images simultaniouly.
-17
-Modified DNNcode so that it trains both set of images(bg and fgbg images) simultaniouly.
-18
-​
-19
-to predict mask, Depth images thought of comparing the output layers to the actual masks and depth images and calculate the loss.
-20
-this loss will be append to the next batch of images and so on..
-21
-Tried serching documentations for different loss functions and their implimentations.
-22
-tried different loss functons and endedup with using "BCEWithLogitsLoss"
-23
-​
-24
-​
-25
-Then the next issue to be addressed is ploting the loss n predictions..
-26
-tried implementing tensorboard, but couldnt figureout cirtain issues.
-27
-endedup in just ploting the image per each epoch i.e loss for mask images, loss for depth images, then mask prediction and deph prediction anf original fgbg image.
-28
-​
-29
-​
-30
-​
-31
-​
-32
-​
-33
-## A Large Custom DataSet is created using few images with fallowing steps
-34
-* Cars were chosed as Foreground(fg) images and
-35
-* Streets & Roads were chosed a Backgroung(bg) images.
-36
-​
-37
-## Data set of 100 Backgroung images of streets & roads   
-@mounikaduddukuri
-Commit changes
-Commit summary
-Update README.md
-Optional extended description
-Add an optional extended description…
- Commit directly to the master branch.
- Create a new branch for this commit and start a pull request. Learn more about pull requests.
- 
-© 2020 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Help
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
+
+
+
+## Data set of 100 foreground masks
+Tried using 3Dpaint and GIMP for creating masks of foreground images
+![Image](https://github.com/mounikaduddukuri/S15A/blob/master/masks.png)
+
+
+
+
+
+## Data set of 400k overlay images of fg on bg  
+Tried different approaches for overlay of foreground on background images.  
+Tried GIMP- water mark tool. managed to create 1000 images at a time.  
+In search of better approach used Photoshop. Recorded actions and implemented in scripts for automation for working on multiple sets of images. Managed to create 10000 images at a time i.e. placing one foreground image at 10 different places on all background images. Problem with this approach was it took almot 1hour for creating implementations and scripts and generating 10000 images. And more frustrating part is, have to creat scripts for new foreground each and every time. That means have to work 100 hour to implement with 100 foreground images.  
+Finally understood the value of coding and loop implementation. 
+
+Started coding in colab. 
+Next problem encountered was to handle large number of images generated in colab.
+Used zip folder, to flush, generated images into zipfile.
+Finally after several attempts able to generate 400k fgbg and fgbg_mask images in jest 1 hour 30 minutes and able to store them in zip file with-out colapsing the drive.
+![Image](https://github.com/mounikaduddukuri/S15A/blob/master/fgbg.png)
+
+
+## Depth estimation of 400k overlay images   
+Tried the Depth model reference given (https://github.com/ialhashim/DenseDepth/blob/master/DenseDepth.ipynb) and with few modifications able to implement nyu-h5 on the overlay bg-fg images.  
+Depth predictions were not prominent. Tried other options for better predictions.
+Tried KITTI ICCV (https://github.com/nianticlabs/monodepth2) and foundout better depth predictions than nyu-h5. My intusion for poor depth prediction of few fg images is (*As menctioned erlier) becaue of poor selection of foregroung images i.e with some what blur margins
+![Image](https://github.com/mounikaduddukuri/S15A/blob/master/depth.png)
+
+## Links to datasets and masks
+- [FG](https://drive.google.com/drive/folders/1RNx8BeqfDozTj3x-u4hcmBTgYNnQ3j3u?usp=sharing)
+- [BG](https://drive.google.com/drive/folders/1LcmPUh3VkEmv_9ewti4CHgpu8HlJIVnJ?usp=sharing)
+- [FG_BG](https://drive.google.com/file/d/1S6Wwd_9-JD6vlIFZSO5wPDPNUcl2N_qZ/view?usp=sharing)
+- [DEPTH_MASK](https://drive.google.com/file/d/1XyfWCBXgQlXQlYDiT9JcQJggf5Y3jcBv/view?usp=sharing)
+- [FB_BG_MASK](https://drive.google.com/file/d/1ln63ZcMPfoKHou6K1OFAJ3xmdy_CnIPt/view?usp=sharing)
