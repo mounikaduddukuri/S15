@@ -24,15 +24,21 @@ Tried using 3Dpaint and GIMP for creating masks of foreground images
 
 
 ## Data set of 400k overlay images of fg on bg  
-Tried different approaches for overlay of foreground on background images.  
-Tried GIMP- water mark tool. managed to create 1000 images at a time.  
-In search of better approach used Photoshop. Recorded actions and implemented in scripts for automation for working on multiple sets of images. Managed to create 10000 images at a time i.e. placing one foreground image at 10 different places on all background images. Problem with this approach was it took almot 1hour for creating implementations and scripts and generating 10000 images. And more frustrating part is, have to creat scripts for new foreground each and every time. That means have to work 100 hour to implement with 100 foreground images.  
-Finally understood the value of coding and loop implementation. 
+Attempted various methodologies for overlay of forefront on foundation pictures. 
 
-Started coding in colab. 
-Next problem encountered was to handle large number of images generated in colab.
-Used zip folder, to flush, generated images into zipfile.
-Finally after several attempts able to generate 400k fgbg and fgbg_mask images in jest 1 hour 30 minutes and able to store them in zip file with-out colapsing the drive.
+Attempted GIMP-water mark instrument. figured out how to make 1000 pictures one after another. 
+
+Looking for better methodology utilized Photoshop. Recorded activities and executed in contents for robotization for taking a shot at numerous arrangements of pictures. Figured out how to make 10000 pictures one after another for example putting one forefront picture at 10 better places on all foundation pictures. Issue with this methodology was it took almot 1hour for making usage and contents and creating 10000 pictures. What's more, all the more disappointing part is, need to creat contents for new frontal area every single time. That implies need to work 100 hour to actualize with 100 frontal area pictures. 
+
+At last comprehended the benefit of coding and circle usage. 
+
+Begun coding in colab. 
+
+Next issue experienced was to deal with huge number of pictures produced in colab. 
+
+Utilized compress organizer, to flush, produced pictures into zipfile. 
+
+At last after a few endeavors ready to produce 400k fgbg and fgbg_mask pictures jokingly 1 hour 30 minutes and ready to store them in compress record with-out colapsing the drive.
 ![Image](https://github.com/mounikaduddukuri/S15A/blob/master/fgbg.png)
 
 
