@@ -79,8 +79,11 @@ Coarse 1	Coarse 2	Coarse 3
 Input											
 				Coarse			Fine
 Layer	  input	  1	  2,3,4   	5	6	7	1,2,3,4
+
 Size (NYUDepth)	304x228	37x27	18x13	8x6	1x1	74x55	74x55
+
 Size (KITTI)	576x172	71x20	35x9	17x4	1x1	142x27	142x27
+
 Ratio to input	/1	/8	/16	/32	–	/4	/4
 
 Figure 1: Model architecture.
