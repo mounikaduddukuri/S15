@@ -74,9 +74,43 @@ As vanishing points, object locations, and room alignment. A local view (as is c
 
 As illustrated in Fig. 1, the global, coarse-scale network contains five feature extraction layers of convolution and max-pooling, followed by two fully connected layers. The input, feature map and output sizes are also given in Fig. 1. The final output is at 1/4-resolution compared to the input (which is itself downsampled from the original dataset by a factor of 2), and corresponds to a center crop containing most of the input (as we describe later, we lose a small border area due to the first layer of the fine-scale network and image transformations).
 
-[Example of the image with the framework](https://github.com/mounikaduddukuri/S15/blob/master/Capture.PNG)
+![Example of the image with the framework](https://github.com/mounikaduddukuri/S15/blob/master/Capture.PNG)
 
 Note that the spatial dimension of the output is larger than that of the topmost convolutional feature map. Rather than limiting the output to the feature map size and relying on hardcoded upsampling before passing the prediction to the fine network, we allow the top full layer to learn templates over the larger area (74x55 for NYU Depth). These are expected to be blurry, but will be better than the upsampled output of a 8x6 prediction (the top feature map size); essentially, we allow the network to learn its own upsampling based on the features.
 
 All hidden layers use rectified linear units for activations, with the exception of the coarse output layer 7, which is linear. Dropout is applied to the fully-connected hidden layer 6. The convolu-tional layers (1-5) of the coarse-scale network are pretrained on the ImageNet classification task.
+
+[Source for implementing Data set for segmentations](https://github.com/mounikaduddukuri/S15/blob/master/Final_15_Depth_mask.ipynb)
+
+Images occured in the part of epoch with loss funcitonality where each and every image is segmented to the grey scale as of below.
+
+![Image1](https://github.com/mounikaduddukuri/S15/blob/master/downloada.png)
+
+![Image2](https://github.com/mounikaduddukuri/S15/blob/master/download2.png)
+
+![Image3](https://github.com/mounikaduddukuri/S15/blob/master/depth_mask.png)
+
+![Image4](https://github.com/mounikaduddukuri/S15/blob/master/mask.png)\
+
+
+### Walk through the procedure 
+
+- Attempted changes resize to little estimate to deal with trouble on the GPU. 
+
+- Attempted dim scale change as a result of 2 reasons. 
+
+- as our expectations i.e veil pictures and profundity pictures are in dim scale 
+
+- to diminish the weight on GPU by decreasing the loads, channels Ploted the pictures after changes. 
+
+- first issue experienced was to prepare 2 arrangements of pictures simultaniouly. 
+
+- DNNcode was changed so it trains both arrangement of images(bg and fgbg pictures) simultaniouly. 
+
+-  DNNs were utilized in this procedure. One is to ascertain misfortune, and another is to actualize misfortune and anticipate Mask pictures and Depth pictures. While coding DNN, one needs to pick between more extensive system or profound system. More extensive systems can be utilized when number of classes to be anticipated are more. Where as more profound systems will be advantgeous when different varients are available in given classes. 
+- Taken a stab at serching documentations for various misfortune capacities and their implimentations. Attempted diverse misfortune functons and endedup with utilizing "BCEWithLogitsLoss" 
+-At that point the following issue to be tended to is ploting the misfortune and expectations.. Taken a stab at executing tensorboard, however couldnt figureout cirtain issues. Endedup by ploting the picture per every age i.e misfortune for veil pictures, misfortune for profundity pictures, at that point cover forecast and deph expectation anf unique fgbg picture. 
+
+- Prepared for 20 ages and oberved the varieties in forecasts code
+
 
