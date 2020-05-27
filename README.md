@@ -113,4 +113,8 @@ Images occured in the part of epoch with loss funcitonality where each and every
 
 - Prepared for 20 ages and oberved the varieties in forecasts code
 
+## References
+- [Online reference](https://heartbeat.fritz.ai/deep-learning-for-image-segmentation-u-net-architecture-ff17f6e4c1cf)
+- [Sample reference](https://github.com/advaitsave/Medical-Imaging-Semantic-Segmentation)
+
 
