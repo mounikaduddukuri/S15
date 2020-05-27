@@ -24,18 +24,17 @@ Tried using 3Dpaint and GIMP for creating masks of foreground images
 
 
 ## Data set of 400k overlay images of fg on bg  
-Attempted various methodologies for overlay of forefront on foundation pictures. 
+Endeavored different approachs for overlay of front line on establishment pictures. 
 
-Attempted GIMP-water mark instrument. figured out how to make 1000 pictures one after another. 
+Endeavored GIMP-water mark instrument. made sense of how to make 1000 pictures in a steady progression. 
 
-Looking for better methodology utilized Photoshop. Recorded activities and executed in contents for robotization for taking a shot at numerous arrangements of pictures. Figured out how to make 10000 pictures one after another for example putting one forefront picture at 10 better places on all foundation pictures. Issue with this methodology was it took almot 1hour for making usage and contents and creating 10000 pictures. What's more, all the more disappointing part is, need to creat contents for new frontal area every single time. That implies need to work 100 hour to actualize with 100 frontal area pictures. 
+Searching for better procedure used Photoshop. Recorded exercises and executed in substance for robotization for going after various plans of pictures. Made sense of how to make 10000 pictures in a steady progression for instance putting one cutting edge picture at 10 better places on all establishment pictures. Issue with this philosophy was it took almot 1hour for making utilization and substance and making 10000 pictures. Likewise, all the all the more frustrating part is, have to creat substance for new frontal zone each and every time. That infers need to work 100 hour to complete with 100 frontal zone pictures. 
 
-At last comprehended the benefit of coding and circle usage. 
+Finally grasped the advantage of coding and circle utilization. 
 
-Begun coding in colab. 
+Started coding in colab. 
 
-Next issue experienced was to deal with huge number of pictures produced in colab. 
-
+Next issue experienced was to manage colossal number of pictures created in colab.
 Utilized compress organizer, to flush, produced pictures into zipfile. 
 
 At last after a few endeavors ready to produce 400k fgbg and fgbg_mask pictures jokingly 1 hour 30 minutes and ready to store them in compress record with-out colapsing the drive.
@@ -71,7 +70,7 @@ The task of the coarse-scale network is to predict the overall depth map structu
 
 ### Model architecture.
 
-as vanishing points, object locations, and room alignment. A local view (as is commonly used for stereo matching) is insufficient to notice important features such as these.
+As vanishing points, object locations, and room alignment. A local view (as is commonly used for stereo matching) is insufficient to notice important features such as these.
 
 As illustrated in Fig. 1, the global, coarse-scale network contains five feature extraction layers of convolution and max-pooling, followed by two fully connected layers. The input, feature map and output sizes are also given in Fig. 1. The final output is at 1/4-resolution compared to the input (which is itself downsampled from the original dataset by a factor of 2), and corresponds to a center crop containing most of the input (as we describe later, we lose a small border area due to the first layer of the fine-scale network and image transformations).
 
